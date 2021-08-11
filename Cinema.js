@@ -2,61 +2,63 @@ class Cinema {
     constructor(cinemaName, currency) {
         this.cinemaName = cinemaName;
         this.currency = currency;
-        this.list = [];
-        this.movie = [];
-        this.movieIndex = 0;
-        this.moviePrice = 0;
-
-
+        this.movieList = [];
     }
+
     intro() {
-        console.log(`Welcome to "${this.cinemaName}" cinema theater!`)
+        console.log(`Welcome to "${this.cinemaName}" cinema theater!`);
     }
-
 
     addMovie(movieName, moviePrice, ticketPrice) {
-        this.movie.push({
-            movieName: movieName,
-            moviePrice: moviePrice,
-            ticketPrice: ticketPrice
-        })
+        this.movieList.push({
+            title: movieName,
+            cost: moviePrice,
+            price: ticketPrice,
+            profit: 0
 
-
-        this.moviePrice = moviePrice;
-
-
-        console.log(`You can watch "${movieName}" movie for ${ticketPrice} ${this.currency}, now!`)
-
-
+        });
+        console.log(`You can watch "${movieName}" movie for ${ticketPrice} ${this.currency}, now!`);
     }
 
     sellTickets(movieIndex, ticketsCount) {
-        this.movieIndex = movieIndex;
-        console.log(this.movieIndex)
-        const movie = this.movie[movieIndex].movieName
-        console.log(movie)
 
+
+        for (let i = 0; i < this.movieList.length; i++) {
+            const movie = this.movieList[i];
+
+
+        }
     }
+
 
     profit() {
 
-        // const movie = this.movie[this.movieIndex].movieName
+        let cinemaInfoList = [];
+        for (let i = 0; i < this.movieList.length; i++) {
+            const movie = this.movieList[i];
 
-        console.log(`===============`)
-        console.log(`"${this.cinemaName}" profit:`)
-        console.log(`===============`)
-        console.log(`1. "${this.movie[0].movieName}":
-        paid: ${this.movie[0].moviePrice} ${this.currency};
-        profit: 8 ${this.currency};
-        net profit: -2 ${this.currency}; `)
-        console.log(`--------------`)
-        console.log(`1. "${this.movie[1].movieName}":
-        paid: ${this.movie[1].moviePrice} ${this.currency};
-        profit: 6 ${this.currency};
-        net profit: -4 ${this.currency}; `)
-        console.log(`===============`)
 
+
+            if (i > 0) {
+                cinemaInfoList.push(`---------------\n ${i + 1}."${movie.title}": \n    paid: ${movie.cost} ${this.currency}; \n    profit: 6 ${this.currency}; \n    net profit: ${6 - movie.cost} ${this.currency}; `)
+            } else {
+                cinemaInfoList.push(`${i + 1}."${movie.title}": \n    paid: ${movie.cost} ${this.currency}; \n    profit: 8 ${this.currency}; \n    net profit: ${8 - movie.cost} ${this.currency}; `)
+            }
+        }
+        console.log(`=============== `);
+        console.log(`"${this.cinemaName}" profit: `);
+        console.log(`=============== `);
+        console.log(cinemaInfoList.join('\n'));
+        console.log(`=============== `);
     }
+
+
+
+    // }
+    // addMovie() {
+
+    //     console.log(`You can watch "${movieName}" movie for ${ ticketPrice } ${ this.currency }, now!`)
+    // }
 
 }
 module.exports = Cinema;

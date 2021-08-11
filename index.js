@@ -6,9 +6,9 @@ kauke.intro();
 // Welcome to "Kauke" cinema theater!
 
 // PARAMS: movieName, moviePrice, ticketPrice
-kauke.addMovie('Balionelis', 12, 2);
+kauke.addMovie('Balionelis', 10, 2);
 // You can watch "Balionelis" movie for 2 EUR, now!
-kauke.addMovie('Kaspinelis', 14, 3);
+kauke.addMovie('Kaspinelis', 10, 3);
 // You can watch "Kaspinelis" movie for 3 EUR, now!
 
 // PARAMS: movieIndex, ticketsCount
@@ -33,7 +33,7 @@ kauke.profit();
 // ===============
 
 // kauke.addMovie('Mano batai buvo 2', 20, 5);
-// // You can watch "Mano batai buvo 2" movie for 5 EUR, now!
+// // // You can watch "Mano batai buvo 2" movie for 5 EUR, now!
 
 // kauke.sellTickets(2, 3);
 // kauke.sellTickets(1, 4);
